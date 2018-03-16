@@ -15,5 +15,5 @@ void custo() {
     cin >> despesas;
     /**  calcula a quantidade de anos que irá receber */
 	anos = 1000000/(12*(salario-despesas));
-	cout << "Faltam " <<anos<<"anos para juntar 1 milhao" << anos <<endl;
+	cout << "Faltam " <<anos<<" anos para juntar 1 milhao" <<endl;
 }
