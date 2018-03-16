@@ -15,7 +15,7 @@ using namespace std;
 int main() {
      int n=0;
      while(n!=4){
-          /**@brief Menu para o usuário*/
+          /** Menu para o usuário*/
      cout << "Digite 1 para saber em quantos anos se tornará milionário"<< endl;
      cout << "Digite 2 para saber a quantidade de vezes que se digita o número" << endl;
      cout << "Digite 3 para saber o troco a ser recebido"<< endl;

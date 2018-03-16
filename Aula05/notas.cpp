@@ -12,14 +12,14 @@ void notas() {
 	cout << "Digite o montante (R$): ";
 	cin >> n;
 	for (int i=0; i<7; i++) {
-		/** @brief Enquanto a subtração do montante com a maior nota for  maior ou igual a 0, é sinal qua ainda pode-se retirar uma nota correspondente*/
+		/**  Enquanto a subtração do montante com a maior nota for  maior ou igual a 0, é sinal qua ainda pode-se retirar uma nota correspondente*/
 		while((n-notasgerais[i])>=0) {
 			n = n-notasgerais[i];
 			contador[i]++;
 		}
 	}
 	cout << endl;
-	/**@brief impressão do resultado*/
+	/** impressão do resultado*/
 	for(int i=0; i<7; i++) {
 		if(contador[i]>0) cout << contador[i] << " nota(s) de " << notasgerais[i] << " reais" << endl;
 	}

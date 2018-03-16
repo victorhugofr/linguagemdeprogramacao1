@@ -8,7 +8,7 @@ using namespace std;
 void relatorio() {
 	int i,numeros[10][2],n, cont=0;
 	cout << "Digite 10 números:\n" << endl;
-	/** @brief Leitura de valores*/
+	/**  Leitura de valores*/
 	for (i=0; i<10; i++) {
 		numeros[i][0]=0;
 		numeros[i][1]=0;
@@ -16,7 +16,7 @@ void relatorio() {
 	for(i=0; i<10; i++) {
 	cin >> n;
 		for(int j=0; j<10; j++) {
-			/**@brief verificação caso haja digitado um número igual a esse*/
+			/** verificação caso haja digitado um número igual a esse*/
 		if(n == numeros[j][0] && i>0) {
 			numeros[j][1]++;
 			break;
@@ -30,7 +30,7 @@ void relatorio() {
 	}
 	i=0;
 	cout << endl;
-	/** @brief Resultado*/
+	/**  Resultado*/
 	while (numeros[i][0]!=0 && i<10) {
 		cout << numeros[i][0] << " Foi digitado: " << numeros[i][1] << " vezes" << endl;
 		i++;

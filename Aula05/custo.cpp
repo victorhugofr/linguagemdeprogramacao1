@@ -8,12 +8,12 @@ using namespace std;
 void custo() {
 	int salario, despesas,anos;
 	cout << "Informe seu salário: " << endl;
-	/** @brief recebe o quanto o usuario ganha no salario */
+	/**  recebe o quanto o usuario ganha no salario */
     cin >> salario;
 	cout << "Informe seus gastos: " << endl;
-	/** @brief recebe o quanto o usuario gasta no salario */
+	/**  recebe o quanto o usuario gasta no salario */
     cin >> despesas;
-    /** @brief calcula a quantidade de anos que irá receber */
+    /**  calcula a quantidade de anos que irá receber */
 	anos = 1000000/(12*(salario-despesas));
 	cout << "Faltam " <<anos<<"anos para juntar 1 milhao" << anos <<endl;
 }
