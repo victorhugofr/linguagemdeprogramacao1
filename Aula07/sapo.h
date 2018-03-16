@@ -1,17 +1,18 @@
-#ifndef SAPO_H
-#define DADO_H
-
+#ifndef	SAPO_H
+#define SAPO_H
+#include <iostream>
+#include <string>
 class Sapo{
 private: 
-		char nome[30];
+		char *nome;
 		int distancia;
 		int pulos;
 public: 
 		int getdistancia();
-		void setdistancia();
+		void setdistancia(int d);
 		int getpulos();
-		void setpulos();
-		char getnome();
-		void setnome();
+		void setpulos(int p);
+		char *getnome();
+		void setnome(char n[]);
 };
 #endif
