@@ -6,7 +6,6 @@ using namespace std;
 
 int main(){
 	Sapo sapo1,sapo2,sapo3;
-	cout << "passou";
 	char n[30];
 	int distancia = 30,d1=0,d2=0,d3=0,pulo1=0,pulo2=0,pulo3=0,ganhador;
 	cout << "Digite o nome do sapo 1: " ;
