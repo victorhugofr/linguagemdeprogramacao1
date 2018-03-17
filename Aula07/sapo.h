@@ -4,7 +4,6 @@
 #include <string>
 class Sapo{
 private: 
-		char *nome;
 		int distancia;
 		int pulos;
 public: 
@@ -12,7 +11,5 @@ public:
 		void setdistancia(int d);
 		int getpulos();
 		void setpulos(int p);
-		char *getnome();
-		void setnome(char n[]);
 };
 #endif
