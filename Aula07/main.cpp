@@ -46,13 +46,13 @@ int main(){
 		}
 	}
 	if(ganhador==1){
-		cout << "O sapo " << name1 << " venceu com " << sapo1.getpulos() <<" pulos" << endl;
+		cout << "O sapo " << name1 << " venceu com " << sapo1.getpulos() <<" pulos, numa corrida de 30m" << endl;
 	}
 	if(ganhador==2){
-		cout << "O sapo " << name2 << " venceu com " << sapo2.getpulos() <<" pulos" << endl;
+		cout << "O sapo " << name2 << " venceu com " << sapo2.getpulos() <<" pulos, numa corrida de 30m" << endl;
 	}
 	if(ganhador==3){
-		cout << "O sapo " << name3 << " venceu com " << sapo3.getpulos() <<" pulos" << endl;
+		cout << "O sapo " << name3 << " venceu com " << sapo3.getpulos() <<" pulos, numa corrida de 30m" << endl;
 	}
 	return 0;
 }
