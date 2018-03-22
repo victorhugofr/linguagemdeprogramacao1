@@ -29,7 +29,9 @@ int main(){
 	cout << "Digite o nome do sapo 3: " ;
 	cin.getline (name3,30);
 	sapo[2].setname(name3);
+	/**Determinação do ganhador da corrida*/
 	ganhador=corrida(distancia,sapo);
+	/**Impressão do ganhador da corrida na tela*/
 	imprimir(ganhador,sapo);
 	return 0;
 }
