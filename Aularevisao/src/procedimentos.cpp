@@ -11,7 +11,10 @@ void criarconta(int n, Conta *conta){
 		conta[n].setsaldo(0);
 		cout <<"SALDO DA CONTA: "<<0<<endl;
 }
-void saque(int agencia,int numero, int s, Conta *conta){
+void extrato(int n, Conta *conta){
+	conta[n].getextrato();
+}
+void saque(int agencia, int s, Conta *conta){
 	int novo;
 		novo=conta[agencia].getsaldo()-s;
 		if(novo<0){
@@ -20,8 +23,9 @@ void saque(int agencia,int numero, int s, Conta *conta){
 			conta[agencia].setsaldo(novo);
 			cout <<"SAQUE REALIZADO COM SUCESSO, SEU NOVO SALDO NA CONTA É DE : "<<novo<<"RS"<<endl;
 		}
+		conta[agencia].setextrato(3,s);
 }
-void depositar(int agencia,int numero, int s, Conta *conta){
+void depositar(int agencia, int s, Conta *conta){
 	int novo;
 		novo=conta[agencia].getsaldo()+s;
 		if(s<0){
@@ -30,8 +34,9 @@ void depositar(int agencia,int numero, int s, Conta *conta){
 			conta[agencia].setsaldo(novo);
 			cout <<"DEPOSITO REALIZADO COM SUCESSO, SEU NOVO SALDO NA CONTA É DE : "<<novo<<"RS"<<endl;
 		}
+		conta[agencia].setextrato(4,s);
 }
-void emissaosaldo(int agencia,int numero, Conta *conta){
+void emissaosaldo(int agencia, Conta *conta){
 	cout <<"SEU SALDO NA CONTA É DE : "<<conta[agencia].getsaldo()<<"RS"<<endl;
 }
 void transferencia(int agencia, Conta *conta,int agencia1, int s){
@@ -44,5 +49,6 @@ void transferencia(int agencia, Conta *conta,int agencia1, int s){
 			conta[agencia].setsaldo(saldo);
 			cout <<"DEPOSITO REALIZADO COM SUCESSO, SEU NOVO SALDO NA CONTA É DE : "<<saldo<<"RS"<<endl;
 		}
+		conta[agencia].setextrato(5,s);
 
 }
