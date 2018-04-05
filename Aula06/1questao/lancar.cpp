@@ -2,15 +2,9 @@
 #include <ctime> 
 #include <cstdlib>
 #include "dado.h"
-using std::cin;
-using std::cout;
-using std::endl;
-
-int main ()
-{
-	int n;
-	cout << "Quantidade de lançamentos: ";
-	cin>>n;
+#include "lancar.h"
+using namespace std;
+void lancar(int n){
 	dado xRan[n];
 	srand( time(0)); 
 	for(int i=0;i<n;i++){
@@ -18,7 +12,4 @@ int main ()
 		cout << i+1 <<"o dado jogado:" << xRan[i].lado << endl;	
 
 	}
-	
-	
-	return 0;
 }

@@ -2,16 +2,11 @@
 #include <ctime> 
 #include <cstdlib>
 #include "dado.h"
-using std::cin;
-using std::cout;
-using std::endl;
-
-int main ()
-{
-	int n,soma=0;
-	cout << "Quantidade de lançamentos: ";
-	cin>>n;
+#include "lancar.h"
+using namespace std;
+void lancar(int n){
 	dado xRan[n];
+	int soma=0;
 	srand( time(0)); 
 	for(int i=0;i<n;i++){
 		xRan[i].lado=rand()%6+1; 
@@ -19,6 +14,4 @@ int main ()
 		soma+=xRan[i].lado;
 	}
 	cout << "Soma dos valores: " << soma << endl;	
-	
-	return 0;
 }
