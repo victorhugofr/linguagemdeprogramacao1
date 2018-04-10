@@ -1,6 +1,15 @@
+/**
+ * @file  conta.cpp
+ * @brief Exercicio de revisao com o objetivo de simular um banco
+ * @author Victor Hugo Freire Ramalho
+ * @since 27/03/2018
+ * @date 29/03/2018
+ * @copyright Victor Hugo corporacoes
+*/
 #include <iostream>
 #include "../include/conta.hpp"
 using namespace std;
+Conta::Conta(){}
 int Conta::getagencia(){return agencia;}
 int Conta::getnumero(){return numero;}
 int Conta::getsaldo(){return saldo;}
