@@ -2,9 +2,13 @@ PROG = exec
 CC = g++
 CPPFLAGS = -O0 -g -W -Wall -pedantic
 OBJS = main.o notas.o relatorio.o custo.o
-
+SRC = src/
+BUILD = build/
+BIN = bin/
 $(PROG) : $(OBJS)
-	$(CC) $(OBJS) -o $(PROG)
+		$(CC) $(OBJS) -o $(PROG)
+		mv *.o $(BUILD)
+		mv $(PROG) $(BIN)
 
 main.o:
 	$(CC) $(CPPFLAGS) -c main.cpp
