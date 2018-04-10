@@ -11,13 +11,13 @@ $(PROG) : $(OBJS)
 		mv $(PROG) $(BIN)
 
 main.o:
-	$(CC) $(CPPFLAGS) -c main.cpp
-notas.o: notas.h
-	$(CC) $(CPPFLAGS) -c notas.cpp
-relatorio.o: relatorio.h
-	$(CC) $(CPPFLAGS) -c relatorio.cpp
-custo.o: custo.h
-	$(CC) $(CPPFLAGS) -c custo.cpp		
+	$(CC) $(CPPFLAGS) -c $(SRC)main.cpp
+notas.o:
+	$(CC) $(CPPFLAGS) -c $(SRC)notas.cpp
+relatorio.o:
+	$(CC) $(CPPFLAGS) -c $(SRC)relatorio.cpp
+custo.o:
+	$(CC) $(CPPFLAGS) -c $(SRC)custo.cpp		
 
 clean: 
 	rm -f *.o exec
