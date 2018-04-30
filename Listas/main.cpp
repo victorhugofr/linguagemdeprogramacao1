@@ -4,52 +4,57 @@
 #include "lista.hpp"
 using namespace std;
 int main(){
-	int i,z,g=0;
-	string nome,tipo;
-while(menu()!=0){
-	switch(menu()){
-		case 1:
-			cout<<"Escolha um nome para tal lista: "<<endl;
-			cin>>nome;
+	int i,z;
+	Lista<int>* intLista = new Lista<int>();
+	Lista<double>* doubleLista = new Lista<double>();
+	string tipo;
+	int a;
+while(a!=0){
+	a=menu();
+		if(a==1){
 			cout<<"A lista será do tipo:"<<endl;
 			cin>>tipo;
-			Listas *nome= new Listas[10];
-			nome[g].settipo(tipo);
-			g++;
-
-		case 2:
-			i=quallista(g); //qual lista pergunta ao usuario a lista que deseja adicionar
-			cout<<"DIgite o elemento ao qual deseja adicionar"<<endl;
-			if(nome[i].tipo == "int"){
+		}
+		else if(a==2){
+			i=quallista(); //qual lista pergunta ao usuario a lista que deseja adicionar
+			if(i==1){
+				cout<<"Digite o elemento ao qual deseja adicionar"<<endl;
 				int inteiro;
 				cin>> inteiro;
-				nome[i].elemento[nome[i].qtdelementos] = inteiro;
-				nome[i].qtdelementos ++;
-			}else if(nome[i].tipo == "double"){
+				intLista->InsereOrdem(inteiro);
+			}else if(i==2){
 				double ele;
 				cin>> ele;
-				nome[i].elemento[nome[i].qtdelementos] = ele;
-				nome[i].qtdelementos ++;
+				doubleLista->InsereOrdem(ele);
 			}
-		case 3:
-			i=quallista(g);
-			cout<<"DIgite o elemento ao qual deseja remover"<<endl;
-			cin>>ele;
-			nome[i].elemento.erase(remove(nome[i].elemento.begin(), nome[i].elemento.end(), nome[i].elemento(ele)));
-		case 4:
-			i = qualista(g);
-			cout<<"Digite o elemento que deseja procurar"<<endl;
-			cin>>ele;
-			z = nome[i].procuraelemento(ele, i);
-			cout<<"O elemento "<<ele<<"esta na posicao "<<z<<"na lista"<<endl;
-		case 5:
-			i = quallista(g);
-			for(int z=0;z<nome[i].qtdelementos;z++){
-				cout<<"Elemento: "<<z+1<<" "<< nome[i].elemento[z]<<endl;
+		}
+		else if(a==3){
+			i=quallista();
+			cout<<"Digite o elemento ao qual deseja remover"<<endl;
+		}
+		else if(a==4){
+			i = quallista();
+			cout<<"Digite a posicao que deseja procurar"<<endl;
+			int posicao;
+			cin>>posicao;
+			if(i==1){
+				int intm=intLista->get(posicao);
+				cout<<"O elemento "<<intm<<"esta na posicao "<<posicao<<"na lista"<<endl;
+			}else if(i==2){
+				int doublem=doubleLista->get(posicao);
+				cout<<"O elemento "<<doublem<<"esta na posicao "<<posicao<<"na lista"<<endl;
 			}
+		}
+		else if(a==5){
+			i = quallista();
+			if(i==1){
+				intLista->mostra();
+			}else if(i==2){
+				doubleLista->mostra();
+			}
+		}
 
 	}
-}
-return 0;
 
+return 0;
 }

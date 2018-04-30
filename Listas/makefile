@@ -11,4 +11,4 @@ main.o: lista.hpp procedimentos.hpp
 procedimentos.o: procedimentos.hpp lista.hpp
 	$(CC) $(CPPFLAGS) -c procedimentos.cpp
 clean: 
-	rm -f *.o exec
+	del /f *.o exec

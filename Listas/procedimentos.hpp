@@ -4,6 +4,6 @@
 #include <iostream>
 #include <string>
 int menu();
-int quallista(int g);
-void listarlistas(int g);
+int quallista();
+void listarlistas();
 #endif

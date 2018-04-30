@@ -13,15 +13,14 @@ int menu(){
 	cin>>opcao;
 	return opcao;
 }
-int quallista(int g){
+int quallista(){
 	int z;
 	cout<<"DE QUAL LISTA VOCE DESEJA FAZER ISSO?"<<endl;
-	listarlistas(g);
+	listarlistas();
 	cin>>z;
 	return z;
 }
-void listarlistas(int g){
-	for (int t=0;t<g;t++){
-		cout<< t<< " - "<<lista[t].gettipo()<<endl;
-	}
+void listarlistas(){
+	cout <<" 1- LISTA DE INT" <<endl;
+	cout<<" 2 - LISTA DE DOUBLE"<<endl;
 }
