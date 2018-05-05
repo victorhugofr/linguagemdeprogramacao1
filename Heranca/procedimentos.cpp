@@ -1,4 +1,5 @@
 #include "procedimentos.hpp"
+using namespace std;
 int qualproduto(){
 	int n;
 	cout<< "QUAL PRODUTO DESEJA ADICIONAR? "<<endl;

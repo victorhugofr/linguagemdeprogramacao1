@@ -1,7 +1,7 @@
 #ifndef CELULAR_HPP
 #define CELULAR_HPP
 #include "produto.hpp"
-#include "duravel.hpp"
-class Celular : public Produto, NDuravel{
+#include "nduravel.hpp"
+class Celular : public Produto,public  NDuravel{
 };
 #endif
