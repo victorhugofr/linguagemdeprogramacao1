@@ -2,8 +2,6 @@
 #define CARRO_HPP
 #include "produto.hpp"
 #include "duravel.hpp"
-class Carro : public Produto, Duravel{
-public:
-	int quantidade;
+class Carro : public Produto, NDuravel{
 };
 #endif

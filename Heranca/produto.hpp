@@ -6,7 +6,7 @@ using namespace std;
 class Produto{
 public:
 	string nome;
-	int preco;
+	float preco;
 	string marca;
 	string descricao;
 	string datafab;
