@@ -306,7 +306,7 @@ while(a!=0){
 							carro[z].marca=carro[z+1].marca;
 							carro[z].descricao=carro[z+1].descricao;
 							carro[z].datafab=carro[z+1].datafab;
-							carro[z].descricao=carro[z+1].descricao;
+							carro[z].genero=carro[z+1].genero;
 							carro[z].dataval=carro[z+1].dataval;
 					}
 					cout  <<" CARRO REMOVIDO, LISTA DE carroS: "<<endl;
@@ -335,7 +335,7 @@ while(a!=0){
 							livro[z].marca=livro[z+1].marca;
 							livro[z].descricao=livro[z+1].descricao;
 							livro[z].datafab=livro[z+1].datafab;
-							livro[z].descricao=livro[z+1].descricao;
+							livro[z].genero=livro[z+1].genero;
 							livro[z].dataval=livro[z+1].dataval;
 					}
 					cout  <<" livro REMOVIDO, LISTA DE livroS: "<<endl;
@@ -364,7 +364,7 @@ while(a!=0){
 							celular[z].marca=celular[z+1].marca;
 							celular[z].descricao=celular[z+1].descricao;
 							celular[z].datafab=celular[z+1].datafab;
-							celular[z].descricao=celular[z+1].descricao;
+							celular[z].genero=celular[z+1].genero;
 							celular[z].dataval=celular[z+1].dataval;
 					}
 					cout  <<" celular REMOVIDO, LISTA DE celularS: "<<endl;
@@ -374,7 +374,121 @@ while(a!=0){
 					}
 				}
 			}
+			else if (a==3){
+				cout<<"EXISTEM "<<pic+rec+chc+cac+lic+cec<<" PRODUTOS NO DEPOSITO"<<endl;
+				cout<<"DESEJA SABER DETALHADAMENTE? (1 - SIM, 2 - NAO)"<<endl;
+				cin>>i;
+				if(i==1){
+					cout <<"EXISTEM " <<pic << " PIZZAS NO ESTOQUE"<<endl;
+					cout << "EXISTEM "<<rec<<" REFRIGERANTES NO ESTOQUE"<<endl;
+					cout << "EXISTEM "<<chc<<" CHOCOLATES NO ESTOQUE"<<endl;
+					cout << "EXISTEM "<<cac<<" CARROS NO ESTOQUE"<<endl;
+					cout << "EXISTEM "<<lic<<" LIVROS NO ESTOQUE"<<endl;
+					cout << "EXISTEM "<<cec<<" CELULARES NO ESTOQUE"<<endl;
+				}
+			}
 
+			else if (a==4){
+				if((pic+rec+chc+chc+cac+lic+cec) == 0){
+					cout<<"O DEPOSITO ESTA VAZIO"<<endl;
+				}else{
+					cout<<"O DEPOSITO POSSUI PRODUTOS"<<endl;
+				}
+			}
+			else if(a==5){
+				int maiorpreco=0,qproduto,qposicao;
+				for(int n=0;n<pic;n++){
+					if(pizza[n].preco>maiorpreco){
+						maiorpreco=pizza[n].preco;
+						qproduto=1;
+						qposicao=n;
+					}
+				}
+				for(int n=0;n<rec;n++){
+					if(refrigerante[n].preco>maiorpreco){
+						maiorpreco=refrigerante[n].preco;
+						qproduto=2;
+						qposicao=n;
+					}
+				}
+				for(int n=0;n<chc;n++){
+					if(chocolate[n].preco>maiorpreco){
+						maiorpreco=chocolate[n].preco;
+						qproduto=3;
+						qposicao=n;
+					}
+				}
+				for(int n=0;n<cac;n++){
+					if(carro[n].preco>maiorpreco){
+						maiorpreco=carro[n].preco;
+						qproduto=4;
+						qposicao=n;
+					}
+				}
+				for(int n=0;n<lic;n++){
+					if(livro[n].preco>maiorpreco){
+						maiorpreco=livro[n].preco;
+						qproduto=5;
+						qposicao=n;
+					}
+				}
+				for(int n=0;n<cec;n++){
+					if(celular[n].preco>maiorpreco){
+						maiorpreco=celular[n].preco;
+						qproduto=6;
+						qposicao=n;
+					}
+				}
+				if(qproduto==1){
+					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI A PIZZA "<<pizza[qposicao].nome <<endl;
+					cout<<"------Marca: "<< pizza[qposicao].marca<<endl;
+					cout<<"------Descricao: "<<pizza[qposicao].descricao<<endl;
+				    cout<<"------Data de fabricacao: "<<pizza[qposicao].datafab<<endl;
+					cout<<"------Material: "<<pizza[qposicao].material<<endl;
+					cout<<"------Durabilidade: "<<pizza[qposicao].durabilidade<<endl;
+					cout<<"COM O PRECO DE "<<maiorpreco<<endl;
+				}else if (qproduto==2){
+					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O CHOCOLATE "<<chocolate[qposicao].nome <<endl;
+					cout<<"------Marca: "<< chocolate[qposicao].marca<<endl;
+					cout<<"------Descricao: "<<chocolate[qposicao].descricao<<endl;
+				    cout<<"------Data de fabricacao: "<<chocolate[qposicao].datafab<<endl;
+					cout<<"------Material: "<<chocolate[qposicao].material<<endl;
+					cout<<"------Durabilidade: "<<chocolate[qposicao].durabilidade<<endl;
+					cout<<"COM O PRECO DE "<<chocolate[qposicao].preco<<endl;
+				}else if(qproduto==3){
+					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI REFRIGERANTE "<<refrigerante[qposicao].nome <<endl;
+					cout<<"------Marca: "<< refrigerante[qposicao].marca<<endl;
+					cout<<"------Descricao: "<<refrigerante[qposicao].descricao<<endl;
+				    cout<<"------Data de fabricacao: "<<refrigerante[qposicao].datafab<<endl;
+					cout<<"------Material: "<<refrigerante[qposicao].material<<endl;
+					cout<<"------Durabilidade: "<<refrigerante[qposicao].durabilidade<<endl;
+					cout<<"COM O PRECO DE "<<refrigerante[qposicao].preco<<endl;
+				}else if (qproduto==4){
+						cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O CARRO "<<carro[qposicao].nome <<endl;
+					cout<<"------Marca: "<< carro[qposicao].marca<<endl;
+					cout<<"------Descricao: "<<carro[qposicao].descricao<<endl;
+				    cout<<"------Data de fabricacao: "<<carro[qposicao].datafab<<endl;
+					cout<<"------Genero: "<<carro[qposicao].genero<<endl;
+					cout<<"------Data de validade: "<<carro[qposicao].dataval<<endl;
+					cout<<"COM O PRECO DE "<<carro[qposicao].preco<<endl;
+				}else if(qproduto==5){
+					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O LIVRO "<<livro[qposicao].nome <<endl;
+					cout<<"------Marca: "<< livro[qposicao].marca<<endl;
+					cout<<"------Descricao: "<<livro[qposicao].descricao<<endl;
+				    cout<<"------Data de fabricacao: "<<livro[qposicao].datafab<<endl;
+					cout<<"------Genero: "<<livro[qposicao].genero<<endl;
+					cout<<"------Data de validade: "<<livro[qposicao].dataval<<endl;
+					cout<<"COM O PRECO DE "<<livro[qposicao].preco<<endl;
+				}else if(qproduto==6){
+					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O CELULAR "<<celular[qposicao].nome <<endl;
+					cout<<"------Marca: "<< celular[qposicao].marca<<endl;
+					cout<<"------Descricao: "<<celular[qposicao].descricao<<endl;
+				    cout<<"------Data de fabricacao: "<<celular[qposicao].datafab<<endl;
+					cout<<"------Genero: "<<celular[qposicao].genero<<endl;
+					cout<<"------Data de validade: "<<celular[qposicao].dataval<<endl;
+					cout<<"COM O PRECO DE "<<celular[qposicao].preco<<endl;
+				}
+			}
 	}
 	delete pizza;
 	delete carro;
