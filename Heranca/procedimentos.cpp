@@ -2,7 +2,7 @@
 using namespace std;
 int qualproduto(){
 	int n;
-	cout<< "QUAL PRODUTO DESEJA ADICIONAR? "<<endl;
+	cout<< "QUAL PRODUTO? "<<endl;
 	cout<< "1 - PIZZA"<<endl;
 	cout<< "2 - REFRIGERANTE"<<endl;
 	cout<< "3 - CHOCOLATE"<<endl;
@@ -19,6 +19,7 @@ int menu(){
 	cout<< "2 - REMOVER PRODUTO "<<endl;
 	cout<< "3 - QUANTIDADE DE PRODUTOS NO DEPOSITO "<<endl;
 	cout<< "4 - PRODUTO DE MAIOR VALOR "<<endl;
+	cout <<"0 - SAIR"<<endl;
 	cin >>n;
 	return n;
 }
