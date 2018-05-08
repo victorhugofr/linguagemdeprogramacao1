@@ -46,8 +46,10 @@ deposito= new Deposito[600];
 int dec=0;
 while(a!=0){
 	a=menu();
-	
-		if(a==1){
+	if(a==0){
+		break;
+	}
+		else if(a==1){
 			i=qualproduto();
 			if(i==1 || i==2 || i==3){
 				if(i==1){
@@ -86,100 +88,19 @@ while(a!=0){
 		else if(a==2){
 			i=qualproduto();
 				if(i==1){
-					cout << "QUAIS DESTAS PIZZAS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
-					for(int z=0;z<pic;z++){
-						cout << pizza[z].nome << "     -    DATA FAB: " << pizza[z].datafab<<endl;
-					}
-					cin>> nome1;
-					cin>> fabricacao1;
-					int j,pos;
-					for(j=0;j<pic;j++){
-						if(pizza[j].nome == nome1 && pizza[j].datafab==fabricacao1){
-							pos=j;
-							break;
-						}
-					}
-					for(int z=pos;z<pic;z++){
-							pizza[z].nome = pizza[z+1].nome;
-							pizza[z].preco= pizza[z+1].preco;
-							pizza[z].marca=pizza[z+1].marca;
-							pizza[z].descricao=pizza[z+1].descricao;
-							pizza[z].datafab=pizza[z+1].datafab;
-							pizza[z].dataval=pizza[z+1].dataval;
-							pizza[z].genero=pizza[z+1].genero;
-					}
+					deletarpizza(pizza,deposito,pic,dec);
 					pic--;
 					dec--;
-					cout  <<" PIZZA REMOVIDA, LISTA DE PIZZAS: "<<endl;
-					for(int z=0;z<pic;z++){
-						cout << pizza[z].nome << "     -    DATA FAB: " << pizza[z].datafab<<endl;
-					}
 				}
 				else if(i==2){
-					cout << "QUAIS DESTES REFRIGERANTES DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
-					for(int z=0;z<rec;z++){
-						cout << refrigerante[z].nome << "     -    DATA FAB: " << refrigerante[z].datafab<<endl;
-					}
-					cin>> nome1;
-					cin>> fabricacao1;
-					int j,pos;
-					for(j=0;j<rec;j++){
-						if(refrigerante[j].nome == nome1 && refrigerante[j].datafab==fabricacao1){
-							pos=j;
-							break;
-						}
-					}
-
-
-					// pizza ,refrigerante, chocolate, carro,livro,celular
-
-
-
-					for(int z=pos;z<rec;z++){
-							refrigerante[z].nome = refrigerante[z+1].nome;
-							refrigerante[z].preco= refrigerante[z+1].preco;
-							refrigerante[z].marca=refrigerante[z+1].marca;
-							refrigerante[z].descricao=refrigerante[z+1].descricao;
-							refrigerante[z].datafab=refrigerante[z+1].datafab;
-							refrigerante[z].dataval=refrigerante[z+1].dataval;
-							refrigerante[z].genero=refrigerante[z+1].genero;
-					}
-					cout  <<" REFRIGERANTE REMOVIDO, LISTA DE REFRIGERANTES: "<<endl;
+					deletarrefrigerante(refrigerante,deposito,rec,dec);
 					rec--;
 					dec--;
-					for(int z=0;z<rec;z++){
-						cout << refrigerante[z].nome << "     -    DATA FAB: " << refrigerante[z].datafab<<endl;
-					}
 				}
 				else if(i==3){
-					cout << "QUAIS DESTES CHOCOLATES DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
-					for(int z=0;z<chc;z++){
-						cout << chocolate[z].nome << "     -    DATA FAB: " << chocolate[z].datafab<<endl;
-					}
-					cin>> nome1;
-					cin>> fabricacao1;
-					int j,pos;
-					for(j=0;j<chc;j++){
-						if(chocolate[j].nome == nome1 && chocolate[j].datafab==fabricacao1){
-							pos=j;
-							break;
-						}
-					}
-					for(int z=pos;z<chc;z++){
-							chocolate[z].nome = chocolate[z+1].nome;
-							chocolate[z].preco= chocolate[z+1].preco;
-							chocolate[z].marca=chocolate[z+1].marca;
-							chocolate[z].descricao=chocolate[z+1].descricao;
-							chocolate[z].datafab=chocolate[z+1].datafab;
-							chocolate[z].dataval=chocolate[z+1].dataval;
-							chocolate[z].genero=chocolate[z+1].genero;
-					}
-					cout  <<" CHOCOLATE REMOVIDO, LISTA DE CHOCOLATES: "<<endl;
+					deletarchocolate(chocolate,deposito,chc,dec);
 					chc--;
 					dec--;
-					for(int z=0;z<chc;z++){
-						cout << chocolate[z].nome << "     -    DATA FAB: " << chocolate[z].datafab<<endl;
-					}
 				}
 				else if(i==4){ // CARRO LIVRO CELULAR
 					cout << "QUAIS DESTES CARROS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
