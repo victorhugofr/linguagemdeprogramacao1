@@ -7,7 +7,9 @@
 #include "livro.hpp"
 #include "chocolate.hpp"
 #include "procedimentos.hpp"
+#include "deposito.hpp"
 using namespace std;
+// LEMBRAR DE AJEITAR AS CLASSES
 int main(){
 string nome1,marca1,descricao1,fabricacao1;
 string mpred, datav,genero1;
@@ -38,6 +40,10 @@ Celular *celular;
 celular = new Celular[100];
 int cec=0;
 int a;
+
+Deposito *deposito;
+deposito= new Deposito[600];
+int dec=0;
 while(a!=0){
 	a=menu();
 	
@@ -45,28 +51,9 @@ while(a!=0){
 			i=qualproduto();
 			if(i==1 || i==2 || i==3){
 				if(i==1){
-					cout<<"Informe o nome "<<endl;
-					cin>>nome1;
-					pizza[pic].nome=nome1;
-					cout<<"Informe o preco "<<endl;
-					cin>>preco1;
-					pizza[pic].preco=preco1;
-					cout<<"Informe a marca "<<endl;
-					cin>>marca1;
-					pizza[pic].marca=marca1;
-					cout<<"Informe a descricao "<<endl;
-					cin>>descricao1;
-					pizza[pic].descricao=descricao1;
-					cout<<"Informe a data de fabricacao "<<endl;
-					cin>>fabricacao1;
-					pizza[pic].datafab=fabricacao1;
-					cout<<"Informe o material predominante "<<endl;
-					cin>>mpred;
-					pizza[pic].material=mpred;
-					cout<<"Informe a durabilidade(em anos) "<<endl;
-					cin>>durabilidade1;
-					pizza[pic].durabilidade=durabilidade1;
+					lerpizza(pizza,deposito,pic,dec);
 					pic++;
+					dec++;
 				}
 				if (i==2){
 					cout<<"Informe o nome "<<endl;
@@ -79,18 +66,25 @@ while(a!=0){
 					cin>>marca1;
 					refrigerante[rec].marca=marca1;
 					cout<<"Informe a descricao "<<endl;
-					cin>>descricao1;
+					cin.ignore();
+					getline(cin, descricao1);
 					refrigerante[rec].descricao=descricao1;
 					cout<<"Informe a data de fabricacao "<<endl;
 					cin>>fabricacao1;
 					refrigerante[rec].datafab=fabricacao1;
-					cout<<"Informe o material predominante "<<endl;
-					cin>>mpred;
-					refrigerante[rec].material=mpred;
-					cout<<"Informe a durabilidade(em anos) "<<endl;
-					cin>>durabilidade1;
-					refrigerante[rec].durabilidade=durabilidade1;
+					cout<<"Informe a data de validade "<<endl;
+					cin>>datav;
+					refrigerante[rec].dataval=datav;
+					cout<<"Informe o genero(alimenticio,limpeza, etc) "<<endl;
+					cin>>genero1;
+					refrigerante[rec].genero=genero1;
 					rec++;
+					deposito[dec].nome=refrigerante[pic].nome;
+					deposito[dec].preco=refrigerante[pic].preco;
+					deposito[dec].marca=refrigerante[pic].marca;
+					deposito[dec].descricao=refrigerante[pic].descricao;
+					deposito[dec].datafab=refrigerante[pic].datafab;
+					dec++;
 				}
 				if(i==3){
 					cout<<"Informe o nome "<<endl;
@@ -103,18 +97,25 @@ while(a!=0){
 					cin>>marca1;
 					chocolate[chc].marca=marca1;
 					cout<<"Informe a descricao "<<endl;
-					cin>>descricao1;
+					cin.ignore();
+					getline(cin, descricao1);
 					chocolate[chc].descricao=descricao1;
 					cout<<"Informe a data de fabricacao "<<endl;
 					cin>>fabricacao1;
 					chocolate[chc].datafab=fabricacao1;
-					cout<<"Informe o material predominante "<<endl;
-					cin>>mpred;
-					chocolate[chc].material=mpred;
-					cout<<"Informe a durabilidade(em anos) "<<endl;
-					cin>>durabilidade1;
-					chocolate[chc].durabilidade=durabilidade1;
+					cout<<"Informe a data de validade "<<endl;
+					cin>>datav;
+					chocolate[chc].dataval=datav;
+					cout<<"Informe o genero(alimenticio,limpeza, etc) "<<endl;
+					cin>>genero1;
+					chocolate[chc].genero=genero1;
 					chc++;
+					deposito[dec].nome=chocolate[pic].nome;
+					deposito[dec].preco=chocolate[pic].preco;
+					deposito[dec].marca=chocolate[pic].marca;
+					deposito[dec].descricao=chocolate[pic].descricao;
+					deposito[dec].datafab=chocolate[pic].datafab;
+					dec++;
 				}
 			} else if(i==4 || i==5 || i==6){
 				if(i==4){
@@ -128,18 +129,25 @@ while(a!=0){
 					cin>>marca1;
 					carro[cac].marca=marca1;
 					cout<<"Informe a descricao "<<endl;
-					cin>>descricao1;
+					cin.ignore();
+					getline(cin, descricao1);
 					carro[cac].descricao=descricao1;
 					cout<<"Informe a data de fabricacao "<<endl;
 					cin>>fabricacao1;
 					carro[cac].datafab=fabricacao1;
-					cout<<"Informe a data de validade "<<endl;
-					cin>>datav;
-					carro[cac].dataval=datav;
-					cout<<"Informe o genero(alimenticio,limpeza,roupa,uso pessoal) "<<endl;
-					cin>>genero1;
-					carro[cac].genero=genero1;
+					cout<<"Informe o material predominante "<<endl;
+					cin>>mpred;
+					carro[cac].material=mpred;
+					cout<<"Informe a durabilidade "<<endl;
+					cin>>durabilidade1;
+					carro[cac].durabilidade=durabilidade1;
 					cac++;
+					deposito[dec].nome=carro[pic].nome;
+					deposito[dec].preco=carro[pic].preco;
+					deposito[dec].marca=carro[pic].marca;
+					deposito[dec].descricao=carro[pic].descricao;
+					deposito[dec].datafab=carro[pic].datafab;
+					dec++;
 				}
 				if (i==5){
 					cout<<"Informe o nome "<<endl;
@@ -152,18 +160,25 @@ while(a!=0){
 					cin>>marca1;
 					livro[lic].marca=marca1;
 					cout<<"Informe a descricao "<<endl;
-					cin>>descricao1;
+					cin.ignore();
+					getline(cin, descricao1);
 					livro[lic].descricao=descricao1;
 					cout<<"Informe a data de fabricacao "<<endl;
 					cin>>fabricacao1;
 					livro[lic].datafab=fabricacao1;
-					cout<<"Informe a data de validade "<<endl;
-					cin>>datav;
-					livro[lic].dataval=datav;
-					cout<<"Informe o genero(alimenticio,limpeza,roupa,uso pessoal) "<<endl;
-					cin>>genero1;
-					livro[lic].genero=genero1;
+					cout<<"Informe o material predominante "<<endl;
+					cin>>mpred;
+					livro[lic].material=mpred;
+					cout<<"Informe a durabilidade "<<endl;
+					cin>>durabilidade1;
+					livro[lic].durabilidade=durabilidade1;
 					lic++;
+					deposito[dec].nome=livro[pic].nome;
+					deposito[dec].preco=livro[pic].preco;
+					deposito[dec].marca=livro[pic].marca;
+					deposito[dec].descricao=livro[pic].descricao;
+					deposito[dec].datafab=livro[pic].datafab;
+					dec++;
 				}
 				if(i==6){
 					cout<<"Informe o nome "<<endl;
@@ -176,18 +191,25 @@ while(a!=0){
 					cin>>marca1;
 					celular[cec].marca=marca1;
 					cout<<"Informe a descricao "<<endl;
-					cin>>descricao1;
+					cin.ignore();
+					getline(cin, descricao1);
 					celular[cec].descricao=descricao1;
 					cout<<"Informe a data de fabricacao "<<endl;
 					cin>>fabricacao1;
 					celular[cec].datafab=fabricacao1;
-					cout<<"Informe a data de validade "<<endl;
-					cin>>datav;
-					celular[cec].dataval=datav;
-					cout<<"Informe o genero(alimenticio,limpeza,roupa,uso pessoal) "<<endl;
-					cin>>genero1;
-					celular[cec].genero=genero1;
+					cout<<"Informe o material predominante "<<endl;
+					cin>>mpred;
+					celular[cec].material=mpred;
+					cout<<"Informe a durabilidade (em anos)"<<endl;
+					cin>>durabilidade1;
+					celular[cec].durabilidade=durabilidade1;
 					cec++;
+					deposito[dec].nome=celular[pic].nome;
+					deposito[dec].preco=celular[pic].preco;
+					deposito[dec].marca=celular[pic].marca;
+					deposito[dec].descricao=celular[pic].descricao;
+					deposito[dec].datafab=celular[pic].datafab;
+					dec++;
 				}
 			}
 		}
@@ -213,10 +235,11 @@ while(a!=0){
 							pizza[z].marca=pizza[z+1].marca;
 							pizza[z].descricao=pizza[z+1].descricao;
 							pizza[z].datafab=pizza[z+1].datafab;
-							pizza[z].material=pizza[z+1].material;
-							pizza[z].durabilidade=pizza[z+1].durabilidade;
+							pizza[z].dataval=pizza[z+1].dataval;
+							pizza[z].genero=pizza[z+1].genero;
 					}
 					pic--;
+					dec--;
 					cout  <<" PIZZA REMOVIDA, LISTA DE PIZZAS: "<<endl;
 					for(int z=0;z<pic;z++){
 						cout << pizza[z].nome << "     -    DATA FAB: " << pizza[z].datafab<<endl;
@@ -248,11 +271,12 @@ while(a!=0){
 							refrigerante[z].marca=refrigerante[z+1].marca;
 							refrigerante[z].descricao=refrigerante[z+1].descricao;
 							refrigerante[z].datafab=refrigerante[z+1].datafab;
-							refrigerante[z].material=refrigerante[z+1].material;
-							refrigerante[z].durabilidade=refrigerante[z+1].durabilidade;
+							refrigerante[z].dataval=refrigerante[z+1].dataval;
+							refrigerante[z].genero=refrigerante[z+1].genero;
 					}
 					cout  <<" REFRIGERANTE REMOVIDO, LISTA DE REFRIGERANTES: "<<endl;
 					rec--;
+					dec--;
 					for(int z=0;z<rec;z++){
 						cout << refrigerante[z].nome << "     -    DATA FAB: " << refrigerante[z].datafab<<endl;
 					}
@@ -277,11 +301,12 @@ while(a!=0){
 							chocolate[z].marca=chocolate[z+1].marca;
 							chocolate[z].descricao=chocolate[z+1].descricao;
 							chocolate[z].datafab=chocolate[z+1].datafab;
-							chocolate[z].material=chocolate[z+1].material;
-							chocolate[z].durabilidade=chocolate[z+1].durabilidade;
+							chocolate[z].dataval=chocolate[z+1].dataval;
+							chocolate[z].genero=chocolate[z+1].genero;
 					}
 					cout  <<" CHOCOLATE REMOVIDO, LISTA DE CHOCOLATES: "<<endl;
 					chc--;
+					dec--;
 					for(int z=0;z<chc;z++){
 						cout << chocolate[z].nome << "     -    DATA FAB: " << chocolate[z].datafab<<endl;
 					}
@@ -306,11 +331,12 @@ while(a!=0){
 							carro[z].marca=carro[z+1].marca;
 							carro[z].descricao=carro[z+1].descricao;
 							carro[z].datafab=carro[z+1].datafab;
-							carro[z].genero=carro[z+1].genero;
-							carro[z].dataval=carro[z+1].dataval;
+							carro[z].material=carro[z+1].material;
+							carro[z].durabilidade=carro[z+1].durabilidade;
 					}
 					cout  <<" CARRO REMOVIDO, LISTA DE carroS: "<<endl;
 					cac--;
+					dec--;
 					for(int z=0;z<cac;z++){
 						cout << carro[z].nome << "     -    DATA FAB: " << carro[z].datafab<<endl;
 					}
@@ -335,11 +361,12 @@ while(a!=0){
 							livro[z].marca=livro[z+1].marca;
 							livro[z].descricao=livro[z+1].descricao;
 							livro[z].datafab=livro[z+1].datafab;
-							livro[z].genero=livro[z+1].genero;
-							livro[z].dataval=livro[z+1].dataval;
+							livro[z].material=livro[z+1].material;
+							livro[z].durabilidade=livro[z+1].durabilidade;
 					}
 					cout  <<" livro REMOVIDO, LISTA DE livroS: "<<endl;
 					lic--;
+					dec--;
 					for(int z=0;z<lic;z++){
 						cout << livro[z].nome << "     -    DATA FAB: " << livro[z].datafab<<endl;
 					}
@@ -364,18 +391,19 @@ while(a!=0){
 							celular[z].marca=celular[z+1].marca;
 							celular[z].descricao=celular[z+1].descricao;
 							celular[z].datafab=celular[z+1].datafab;
-							celular[z].genero=celular[z+1].genero;
-							celular[z].dataval=celular[z+1].dataval;
+							celular[z].material=celular[z+1].material;
+							celular[z].durabilidade=celular[z+1].durabilidade;
 					}
 					cout  <<" celular REMOVIDO, LISTA DE celularS: "<<endl;
 					cec--;
+					dec--;
 					for(int z=0;z<cec;z++){
 						cout << celular[z].nome << "     -    DATA FAB: " << celular[z].datafab<<endl;
 					}
 				}
 			}
 			else if (a==3){
-				cout<<"EXISTEM "<<pic+rec+chc+cac+lic+cec<<" PRODUTOS NO DEPOSITO"<<endl;
+				cout<<"EXISTEM "<<dec<<" PRODUTOS NO DEPOSITO"<<endl;
 				cout<<"DESEJA SABER DETALHADAMENTE? (1 - SIM, 2 - NAO)"<<endl;
 				cin>>i;
 				if(i==1){
@@ -389,7 +417,7 @@ while(a!=0){
 			}
 
 			else if (a==4){
-				if((pic+rec+chc+chc+cac+lic+cec) == 0){
+				if((dec) == 0){
 					cout<<"O DEPOSITO ESTA VAZIO"<<endl;
 				}else{
 					cout<<"O DEPOSITO POSSUI PRODUTOS"<<endl;
@@ -444,48 +472,48 @@ while(a!=0){
 					cout<<"------Marca: "<< pizza[qposicao].marca<<endl;
 					cout<<"------Descricao: "<<pizza[qposicao].descricao<<endl;
 				    cout<<"------Data de fabricacao: "<<pizza[qposicao].datafab<<endl;
-					cout<<"------Material: "<<pizza[qposicao].material<<endl;
-					cout<<"------Durabilidade: "<<pizza[qposicao].durabilidade<<endl;
+					cout<<"------Data de validade: "<<pizza[qposicao].dataval<<endl;
+					cout<<"------genero: "<<pizza[qposicao].genero<<endl;
 					cout<<"COM O PRECO DE "<<maiorpreco<<endl;
 				}else if (qproduto==2){
 					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O CHOCOLATE "<<chocolate[qposicao].nome <<endl;
 					cout<<"------Marca: "<< chocolate[qposicao].marca<<endl;
 					cout<<"------Descricao: "<<chocolate[qposicao].descricao<<endl;
 				    cout<<"------Data de fabricacao: "<<chocolate[qposicao].datafab<<endl;
-					cout<<"------Material: "<<chocolate[qposicao].material<<endl;
-					cout<<"------Durabilidade: "<<chocolate[qposicao].durabilidade<<endl;
+					cout<<"------Data de validade: "<<chocolate[qposicao].dataval<<endl;
+					cout<<"------genero: "<<chocolate[qposicao].genero<<endl;
 					cout<<"COM O PRECO DE "<<chocolate[qposicao].preco<<endl;
 				}else if(qproduto==3){
 					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI REFRIGERANTE "<<refrigerante[qposicao].nome <<endl;
 					cout<<"------Marca: "<< refrigerante[qposicao].marca<<endl;
 					cout<<"------Descricao: "<<refrigerante[qposicao].descricao<<endl;
 				    cout<<"------Data de fabricacao: "<<refrigerante[qposicao].datafab<<endl;
-					cout<<"------Material: "<<refrigerante[qposicao].material<<endl;
-					cout<<"------Durabilidade: "<<refrigerante[qposicao].durabilidade<<endl;
+					cout<<"------Data de validade: "<<refrigerante[qposicao].dataval<<endl;
+					cout<<"------genero: "<<refrigerante[qposicao].genero<<endl;
 					cout<<"COM O PRECO DE "<<refrigerante[qposicao].preco<<endl;
 				}else if (qproduto==4){
 						cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O CARRO "<<carro[qposicao].nome <<endl;
 					cout<<"------Marca: "<< carro[qposicao].marca<<endl;
 					cout<<"------Descricao: "<<carro[qposicao].descricao<<endl;
 				    cout<<"------Data de fabricacao: "<<carro[qposicao].datafab<<endl;
-					cout<<"------Genero: "<<carro[qposicao].genero<<endl;
-					cout<<"------Data de validade: "<<carro[qposicao].dataval<<endl;
+					cout<<"------material: "<<carro[qposicao].material<<endl;
+					cout<<"------Durabilidade: "<<carro[qposicao].durabilidade<<endl;
 					cout<<"COM O PRECO DE "<<carro[qposicao].preco<<endl;
 				}else if(qproduto==5){
 					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O LIVRO "<<livro[qposicao].nome <<endl;
 					cout<<"------Marca: "<< livro[qposicao].marca<<endl;
 					cout<<"------Descricao: "<<livro[qposicao].descricao<<endl;
 				    cout<<"------Data de fabricacao: "<<livro[qposicao].datafab<<endl;
-					cout<<"------Genero: "<<livro[qposicao].genero<<endl;
-					cout<<"------Data de validade: "<<livro[qposicao].dataval<<endl;
+					cout<<"------material: "<<livro[qposicao].material<<endl;
+					cout<<"------Durabilidade: "<<livro[qposicao].durabilidade<<endl;
 					cout<<"COM O PRECO DE "<<livro[qposicao].preco<<endl;
 				}else if(qproduto==6){
 					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O CELULAR "<<celular[qposicao].nome <<endl;
 					cout<<"------Marca: "<< celular[qposicao].marca<<endl;
 					cout<<"------Descricao: "<<celular[qposicao].descricao<<endl;
 				    cout<<"------Data de fabricacao: "<<celular[qposicao].datafab<<endl;
-					cout<<"------Genero: "<<celular[qposicao].genero<<endl;
-					cout<<"------Data de validade: "<<celular[qposicao].dataval<<endl;
+					cout<<"------material: "<<celular[qposicao].material<<endl;
+					cout<<"------Durabilidade: "<<celular[qposicao].durabilidade<<endl;
 					cout<<"COM O PRECO DE "<<celular[qposicao].preco<<endl;
 				}
 			}

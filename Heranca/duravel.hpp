@@ -1,7 +1,7 @@
 #ifndef DURAVEL_HPP
 #define DURAVEL_HPP
 #include "produto.hpp"
-class Duravel {
+class NDuravel {
 public:
 	string material;
 	int durabilidade; // em anos
