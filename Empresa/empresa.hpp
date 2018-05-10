@@ -9,9 +9,14 @@
 class Empresa{
 	string nome;
 	string cnpj;
-	Operario operario;
-	Secretaria secretaria;
-	Gerente gerente;
+	Operario *operario;
+	operario = new Operario[10];
+
+	Secretaria *secretaria;
+	secretaria = new Secretaria[10];
+
+	Gerente *gerente;
+	gerente = new Gerente[10];
 
 	int qoperario = 0;
 	int qsecretaria = 0;
