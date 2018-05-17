@@ -92,31 +92,3 @@ while(a!=0){
 	delete acervo;
 
 }
-/*	cout<<"LISTA DETALHADA DE PRODUTOS NO ACERVO:"<<endl;
-		cout<<"----------- LIVROS -----------"<<endl;
-		for(int n=0;n<lic;n++){
-			cout<<"****LIVRO "<<n+1<<": ****"<<endl;
-			cout <<"TITULO: " <<livro[n].titulo <<endl;
-			cout<<"AUTOR: "<<livro[n].autor<<endl;
-			cout<<"EDIITORA: "<<livro[n].editora<<endl;
-			cout<<"ANO DE LANCAMENTO: "<<livro[n].anodelancamento<<endl;
-			cout<<"ISBN: "<<livro[n].ISBN<<endl;
-		}
-		cout<<"----------- CDS -----------"<<endl;
-		for(int n=0;n<cdc;n++){
-			cout<<"****CD "<<n+1<<": ****"<<endl;
-			cout <<"titulo: " <<cd[n].titulo <<endl;
-			cout<<"COMPOSITOR: "<<cd[n].compositor<<endl;
-			cout<<"QUANTIDADE DE FAIXAS: "<<cd[n].quantidadedefaixas<<endl;
-			cout<<"ANO DE LANCAMENTO: "<<cd[n].anodelancamento<<endl;
-			cout<<"GRAVADORA: "<<cd[n].gravadora<<endl;
-		}
-		cout<<"----------- DVDS -----------"<<endl;
-		for(int n=0;n<dvc;n++){
-			cout<<"****DVD "<<n+1<<": ****"<<endl;
-			cout <<"TITULO: " <<dvd[n].titulo <<endl;
-			cout<<"DIRETOR: "<<dvd[n].diretor<<endl;
-			cout<<"DURACAO: "<<dvd[n].duracao<<endl;
-			cout<<"ANO DE LANCAMENTO: "<<dvd[n].anodelancamento<<endl;
-			cout<<"CLASSIFICACAO: "<<dvd[n].classificacao<<endl;
-		}*/
