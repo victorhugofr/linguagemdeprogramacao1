@@ -18,4 +18,7 @@ void lerchocolate(Chocolate *chocolate, Deposito *deposito,int chc, int dec);
 void lercarro(Carro *carro, Deposito *deposito,int chc, int dec);
 void lerlivro(Livro *livro, Deposito *deposito,int lic, int dec);
 void lercelular(Celular *celular, Deposito *deposito,int cec, int dec);
+void deletarpizza(Pizza *pizza, Deposito *deposito, int pic,int dec);
+void deletarrefrigerante(Refrigerante *refrigerante, Deposito *deposito, int rec,int dec);
+void deletarchocolate(Chocolate *chocolate, Deposito *deposito, int chc,int dec);
 #endif

@@ -1,4 +1,4 @@
-#include "procedimentos.hpp"
+#include "../include/procedimentos.hpp"
 using namespace std;
 int qualproduto(){
 	int n;
@@ -221,8 +221,12 @@ float preco1;
 					deposito[dec].descricao=celular[cec].descricao;
 					deposito[dec].datafab=celular[cec].datafab;
 }
-void deletarpizza(Pizza *pizza, Deposito *deposito, int pic,int dec){
-	cout << "QUAIS DESTAS PIZZAS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
+void deletarpizza(Pizza *pizza,  int pic){
+					if(pic==0 && pizza[0].nome==""){
+						cout<<"NÃO FORAM CADASTRADOS pizzaS"<<endl;
+						return;
+					}
+					cout << "QUAIS DESTAS PIZZAS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
 					for(int z=0;z<pic;z++){
 						cout << pizza[z].nome << "     -    DATA FAB: " << pizza[z].datafab<<endl;
 					}
@@ -246,12 +250,19 @@ void deletarpizza(Pizza *pizza, Deposito *deposito, int pic,int dec){
 							pizza[z].dataval=pizza[z+1].dataval;
 							pizza[z].genero=pizza[z+1].genero;
 					}
-					cout  <<" PIZZA REMOVIDA, LISTA DE PIZZAS: "<<endl;
-					for(int z=0;z<pic;z++){
+					int aux;
+					aux=pic;
+					aux--;
+					cout  <<" pizza REMOVIDO, LISTA DE pizzaS: "<<endl;
+					for(int z=0;z<aux;z++){
 						cout << pizza[z].nome << "     -    DATA FAB: " << pizza[z].datafab<<endl;
 					}
 }
-void deletarrefrigerante(Refrigerante *refrigerante, Deposito *deposito, int rec,int dec){
+void deletarrefrigerante(Refrigerante *refrigerante, int rec){
+					if(rec==0 && refrigerante[0].nome==""){
+						cout<<"NÃO FORAM CADASTRADOS REFRIGERANTES"<<endl;
+						return;
+					}
 					cout << "QUAIS DESTES REFRIGERANTES DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
 					for(int z=0;z<rec;z++){
 						cout << refrigerante[z].nome << "     -    DATA FAB: " << refrigerante[z].datafab<<endl;
@@ -276,12 +287,19 @@ void deletarrefrigerante(Refrigerante *refrigerante, Deposito *deposito, int rec
 							refrigerante[z].dataval=refrigerante[z+1].dataval;
 							refrigerante[z].genero=refrigerante[z+1].genero;
 					}
-					cout  <<" REFRIGERANTE REMOVIDO, LISTA DE REFRIGERANTES: "<<endl;
-					for(int z=0;z<rec;z++){
+					int aux;
+					aux=rec;
+					aux--;
+					cout  <<" refrigerante REMOVIDO, LISTA DE refrigeranteS: "<<endl;
+					for(int z=0;z<aux;z++){
 						cout << refrigerante[z].nome << "     -    DATA FAB: " << refrigerante[z].datafab<<endl;
 					}
 }
-void deletarchocolate(Chocolate *chocolate, Deposito *deposito, int chc,int dec){
+void deletarchocolate(Chocolate *chocolate, int chc){
+					if(chc==0 && chocolate[0].nome==""){
+						cout<<"NÃO FORAM CADASTRADOS CHOCOLATES"<<endl;
+						return;
+					}
 					cout << "QUAIS DESTES CHOCOLATES DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
 					for(int z=0;z<chc;z++){
 						cout << chocolate[z].nome << "     -    DATA FAB: " << chocolate[z].datafab<<endl;
@@ -306,8 +324,122 @@ void deletarchocolate(Chocolate *chocolate, Deposito *deposito, int chc,int dec)
 							chocolate[z].dataval=chocolate[z+1].dataval;
 							chocolate[z].genero=chocolate[z+1].genero;
 					}
-					cout  <<" CHOCOLATE REMOVIDO, LISTA DE CHOCOLATES: "<<endl;
-					for(int z=0;z<chc;z++){
+					int aux;
+					aux=chc;
+					aux--;
+					cout  <<" chocolate REMOVIDO, LISTA DE chocolateS: "<<endl;
+					for(int z=0;z<aux;z++){
 						cout << chocolate[z].nome << "     -    DATA FAB: " << chocolate[z].datafab<<endl;
+					}
+}
+void deletarcarro(Carro *carro, int cac){
+					if(cac==0 && carro[0].nome==""){
+						cout<<"NÃO FORAM CADASTRADOS CARROS"<<endl;
+						return;
+					}
+					cout << "QUAIS DESTES CARROS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
+					for(int z=0;z<cac;z++){
+						cout << carro[z].nome << "     -    DATA FAB: " << carro[z].datafab<<endl;
+					}
+					string nome1;
+					string fabricacao1;
+					cin>> nome1;
+					cin>> fabricacao1;
+					int j,pos;
+					for(j=0;j<cac;j++){
+						if(carro[j].nome == nome1 && carro[j].datafab==fabricacao1){
+							pos=j;
+							break;
+						}
+					}
+					for(int z=pos;z<cac;z++){
+							carro[z].nome = carro[z+1].nome;
+							carro[z].preco= carro[z+1].preco;
+							carro[z].marca=carro[z+1].marca;
+							carro[z].descricao=carro[z+1].descricao;
+							carro[z].datafab=carro[z+1].datafab;
+							carro[z].material=carro[z+1].material;
+							carro[z].durabilidade=carro[z+1].durabilidade;
+					}
+					int aux;
+					aux=cac;
+					aux--;
+					cout  <<" carro REMOVIDO, LISTA DE carroS: "<<endl;
+					for(int z=0;z<aux;z++){
+						cout << carro[z].nome << "     -    DATA FAB: " << carro[z].datafab<<endl;
+					}
+}
+void deletarlivro(Livro *livro, int lic){
+					if(lic==0 && livro[0].nome==""){
+						cout<<"NÃO FORAM CADASTRADOS LIVROS"<<endl;
+						return;
+					}
+					cout << "QUAIS DESTES LIVROS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
+					for(int z=0;z<lic;z++){
+						cout << livro[z].nome << "     -    DATA FAB: " << livro[z].datafab<<endl;
+					}
+					string nome1;
+					string fabricacao1;
+					cin>> nome1;
+					cin>> fabricacao1;
+					int j,pos;
+					for(j=0;j<lic;j++){
+						if(livro[j].nome == nome1 && livro[j].datafab==fabricacao1){
+							pos=j;
+							break;
+						}
+					}
+					for(int z=pos;z<lic;z++){
+							livro[z].nome = livro[z+1].nome;
+							livro[z].preco= livro[z+1].preco;
+							livro[z].marca=livro[z+1].marca;
+							livro[z].descricao=livro[z+1].descricao;
+							livro[z].datafab=livro[z+1].datafab;
+							livro[z].material=livro[z+1].material;
+							livro[z].durabilidade=livro[z+1].durabilidade;
+					}
+					int aux;
+					aux=lic;
+					aux--;
+					cout  <<" livro REMOVIDO, LISTA DE livroS: "<<endl;
+					for(int z=0;z<aux;z++){
+						cout << livro[z].nome << "     -    DATA FAB: " << livro[z].datafab<<endl;
+					}
+}
+void deletarcelular(Celular *celular, int cec){
+					if(cec==0 && celular[0].nome==""){
+						cout<<"NÃO FORAM CADASTRADOS CELULARES"<<endl;
+						return;
+					}
+					cout << "QUAIS DESTES LIVROS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
+					for(int z=0;z<cec;z++){
+						cout << celular[z].nome << "     -    DATA FAB: " << celular[z].datafab<<endl;
+					}
+					string nome1;
+					string fabricacao1;
+					cin>> nome1;
+					cin>> fabricacao1;
+					int j,pos;
+					for(j=0;j<cec;j++){
+						if(celular[j].nome == nome1 && celular[j].datafab==fabricacao1){
+							pos=j;
+							break;
+						}
+					}
+					for(int z=pos;z<cec;z++){
+							celular[z].nome = celular[z+1].nome;
+							celular[z].preco= celular[z+1].preco;
+							celular[z].marca=celular[z+1].marca;
+							celular[z].descricao=celular[z+1].descricao;
+							celular[z].datafab=celular[z+1].datafab;
+							celular[z].material=celular[z+1].material;
+							celular[z].durabilidade=celular[z+1].durabilidade;
+					}
+					int aux;
+					aux=cec;
+					aux--;
+					cout  <<" celular REMOVIDO, LISTA DE celularS: "<<endl;
+					for(int z=0;z<aux;z++){
+						cout << celular[z].nome << "     -    DATA FAB: " << celular[z].datafab<<endl;
 					}
 }

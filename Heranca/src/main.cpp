@@ -1,20 +1,19 @@
 #include <iostream>
 #include <string>
-#include "pizza.hpp"
-#include "celular.hpp"
-#include "carro.hpp"
-#include "refrigerante.hpp"
-#include "livro.hpp"
-#include "chocolate.hpp"
-#include "procedimentos.hpp"
-#include "deposito.hpp"
+#include "../include/pizza.hpp"
+#include "../include/celular.hpp"
+#include "../include/carro.hpp"
+#include "../include/refrigerante.hpp"
+#include "../include/livro.hpp"
+#include "../include/chocolate.hpp"
+#include "../include/procedimentos.hpp"
+#include "../include/deposito.hpp"
 using namespace std;
 // LEMBRAR DE AJEITAR AS CLASSES
 int main(){
 string nome1,marca1,descricao1,fabricacao1;
 string mpred, datav,genero1;
-float preco1;
-int durabilidade1,i;
+int i;
 
 Pizza *pizza;
 pizza = new Pizza[100];
@@ -88,109 +87,34 @@ while(a!=0){
 		else if(a==2){
 			i=qualproduto();
 				if(i==1){
-					deletarpizza(pizza,deposito,pic,dec);
+					deletarpizza(pizza,pic);
 					pic--;
 					dec--;
 				}
 				else if(i==2){
-					deletarrefrigerante(refrigerante,deposito,rec,dec);
+					deletarrefrigerante(refrigerante,rec);
 					rec--;
 					dec--;
 				}
 				else if(i==3){
-					deletarchocolate(chocolate,deposito,chc,dec);
+					deletarchocolate(chocolate,chc);
 					chc--;
 					dec--;
 				}
 				else if(i==4){ // CARRO LIVRO CELULAR
-					cout << "QUAIS DESTES CARROS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
-					for(int z=0;z<cac;z++){
-						cout << carro[z].nome << "     -    DATA FAB: " << carro[z].datafab<<endl;
-					}
-					cin>> nome1;
-					cin>> fabricacao1;
-					int j,pos;
-					for(j=0;j<cac;j++){
-						if(carro[j].nome == nome1 && carro[j].datafab==fabricacao1){
-							pos=j;
-							break;
-						}
-					}
-					for(int z=pos;z<cac;z++){
-							carro[z].nome = carro[z+1].nome;
-							carro[z].preco= carro[z+1].preco;
-							carro[z].marca=carro[z+1].marca;
-							carro[z].descricao=carro[z+1].descricao;
-							carro[z].datafab=carro[z+1].datafab;
-							carro[z].material=carro[z+1].material;
-							carro[z].durabilidade=carro[z+1].durabilidade;
-					}
-					cout  <<" CARRO REMOVIDO, LISTA DE carroS: "<<endl;
+					deletarcarro(carro,cac);
 					cac--;
 					dec--;
-					for(int z=0;z<cac;z++){
-						cout << carro[z].nome << "     -    DATA FAB: " << carro[z].datafab<<endl;
-					}
 				}
 				else if(i==5){// CARRO LIVRO CELULAR
-					cout << "QUAIS DESTES LIVROS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
-					for(int z=0;z<lic;z++){
-						cout << livro[z].nome << "     -    DATA FAB: " << livro[z].datafab<<endl;
-					}
-					cin>> nome1;
-					cin>> fabricacao1;
-					int j,pos;
-					for(j=0;j<lic;j++){
-						if(livro[j].nome == nome1 && livro[j].datafab==fabricacao1){
-							pos=j;
-							break;
-						}
-					}
-					for(int z=pos;z<lic;z++){
-							livro[z].nome = livro[z+1].nome;
-							livro[z].preco= livro[z+1].preco;
-							livro[z].marca=livro[z+1].marca;
-							livro[z].descricao=livro[z+1].descricao;
-							livro[z].datafab=livro[z+1].datafab;
-							livro[z].material=livro[z+1].material;
-							livro[z].durabilidade=livro[z+1].durabilidade;
-					}
-					cout  <<" livro REMOVIDO, LISTA DE livroS: "<<endl;
+					deletarlivro(livro,lic);
 					lic--;
 					dec--;
-					for(int z=0;z<lic;z++){
-						cout << livro[z].nome << "     -    DATA FAB: " << livro[z].datafab<<endl;
-					}
 				}
 				else if (i==6){
-					cout << "QUAIS DESTES LIVROS DESEJA REMOVER DO ESTOQUE? INFORME O NOME E A DATA DE FABRICACAO" << endl;
-					for(int z=0;z<cec;z++){
-						cout << celular[z].nome << "     -    DATA FAB: " << celular[z].datafab<<endl;
-					}
-					cin>> nome1;
-					cin>> fabricacao1;
-					int j,pos;
-					for(j=0;j<cec;j++){
-						if(celular[j].nome == nome1 && celular[j].datafab==fabricacao1){
-							pos=j;
-							break;
-						}
-					}
-					for(int z=pos;z<cec;z++){
-							celular[z].nome = celular[z+1].nome;
-							celular[z].preco= celular[z+1].preco;
-							celular[z].marca=celular[z+1].marca;
-							celular[z].descricao=celular[z+1].descricao;
-							celular[z].datafab=celular[z+1].datafab;
-							celular[z].material=celular[z+1].material;
-							celular[z].durabilidade=celular[z+1].durabilidade;
-					}
-					cout  <<" celular REMOVIDO, LISTA DE celularS: "<<endl;
+					deletarcelular(celular,cec);
 					cec--;
 					dec--;
-					for(int z=0;z<cec;z++){
-						cout << celular[z].nome << "     -    DATA FAB: " << celular[z].datafab<<endl;
-					}
 				}
 			}
 			else if (a==3){
@@ -226,14 +150,14 @@ while(a!=0){
 				for(int n=0;n<rec;n++){
 					if(refrigerante[n].preco>maiorpreco){
 						maiorpreco=refrigerante[n].preco;
-						qproduto=2;
+						qproduto=3;
 						qposicao=n;
 					}
 				}
 				for(int n=0;n<chc;n++){
 					if(chocolate[n].preco>maiorpreco){
 						maiorpreco=chocolate[n].preco;
-						qproduto=3;
+						qproduto=2;
 						qposicao=n;
 					}
 				}
@@ -275,7 +199,7 @@ while(a!=0){
 					cout<<"------genero: "<<chocolate[qposicao].genero<<endl;
 					cout<<"COM O PRECO DE "<<chocolate[qposicao].preco<<endl;
 				}else if(qproduto==3){
-					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI REFRIGERANTE "<<refrigerante[qposicao].nome <<endl;
+					cout<< "O PRODUTO COM MAIOR VALOR NO DEPOSITO FOI O REFRIGERANTE "<<refrigerante[qposicao].nome <<endl;
 					cout<<"------Marca: "<< refrigerante[qposicao].marca<<endl;
 					cout<<"------Descricao: "<<refrigerante[qposicao].descricao<<endl;
 				    cout<<"------Data de fabricacao: "<<refrigerante[qposicao].datafab<<endl;
@@ -315,5 +239,6 @@ while(a!=0){
 	delete chocolate;
 	delete refrigerante;
 	delete livro;
+	delete deposito;
 
 }
