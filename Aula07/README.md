@@ -11,9 +11,9 @@ Métodos públicos:
                   
 ◦ pular:
                   
-<p>   ▪ incrementa distância percorrida de forma randômica entre 1 e o máximo que o sapo pode saltar</p>
+   *  ▪ incrementa distância percorrida de forma randômica entre 1 e o máximo que o sapo pode saltar
                       
-<p>   ▪ Incrementa o número de pulos dados em uma unidade </p>
+   *  ▪ Incrementa o número de pulos dados em uma unidade 
                       
   Sinta-se a vontade para adiçionaro de algum outro método ou atributos 
                       
