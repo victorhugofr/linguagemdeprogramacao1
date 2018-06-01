@@ -17,18 +17,24 @@ Métodos públicos: ◦ Construtor(es).
                       
    1.1. Especificação do Projeto O código desenvolvido deve seguir as especificações abaixo: 
    
-   1. programa deverá ler um arquivo que conterá as informações dos sapos disponíveis para a corrida. 
-   2. programa deverá ler um arquivo que conterá as informações sobre as pistas disponíveis para a corrida.
-   3. Ao iniciar o programa, o usuário poderá: 
+1. programa deverá ler um arquivo que conterá as informações dos sapos disponíveis para a corrida. 
+2. programa deverá ler um arquivo que conterá as informações sobre as pistas disponíveis para a corrida.
+3. Ao iniciar o programa, o usuário poderá: 
      a)Ver estatísticas dos sapos.
      b)Ver estatísticas das pistas. 
      c)Iniciar uma corrida. 
      d)Criar sapos.
      e)Criar uma pista. 
-    4. Para iniciar uma corrida:
-               a) O usuário deverá escolher uma pista de corrida que os sapos irão disputar.
-               b) É mostrado ao usuário a lista dos sapos que iram participar da corrida com seus nomes e números.
-               c)O usuário dará o start (pei) da corrida.
-               5. Durante a corrida:
-                  a)Cada sapo irá pular individualmente, mostrando ao usuário seu nome, numeração e quanto ele pulou, em cada pulo.
-                  b)A medida que um sapo chegar na linha de chegada, ele não deverá mais pular nem emitir mais mensagens na tela. c)Quando o ultimo sapo terminar a corrida, o programa mostrará o Rank da corrida.
+4. Para iniciar uma corrida:
+   a) O usuário deverá escolher uma pista de corrida que os sapos irão disputar.
+               
+   b) É mostrado ao usuário a lista dos sapos que iram participar da corrida com seus nomes e números.
+               
+   c)O usuário dará o start (pei) da corrida.
+               
+5. Durante a corrida:
+   a)Cada sapo irá pular individualmente, mostrando ao usuário seu nome, numeração e quanto ele pulou, em cada pulo.
+   
+   b)A medida que um sapo chegar na linha de chegada, ele não deverá mais pular nem emitir mais mensagens na tela.
+   
+   c)Quando o ultimo sapo terminar a corrida, o programa mostrará o Rank da corrida.
