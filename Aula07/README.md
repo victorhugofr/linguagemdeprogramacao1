@@ -11,13 +11,14 @@ Métodos públicos:
                   
 ◦ pular:
                   
-   *  ▪ incrementa distância percorrida de forma randômica entre 1 e o máximo que o sapo pode saltar
+   *   incrementa distância percorrida de forma randômica entre 1 e o máximo que o sapo pode saltar
                       
-   *  ▪ Incrementa o número de pulos dados em uma unidade 
+   *   Incrementa o número de pulos dados em uma unidade 
                       
   Sinta-se a vontade para adiçionaro de algum outro método ou atributos 
                       
-  ### Especificação do Projeto O código desenvolvido deve seguir as especificações abaixo: 
+  ### Especificação do Projeto 
+  O código desenvolvido deve seguir as especificações abaixo: 
    
 1. programa deverá ler um arquivo que conterá as informações dos sapos disponíveis para a corrida. 
 2. programa deverá ler um arquivo que conterá as informações sobre as pistas disponíveis para a corrida.
