@@ -4,6 +4,7 @@ Implemente uma classe chamada Sapo contendo atributos: nome, identificador, dist
 Atributo estático público: distância total da corrida 
 
 Métodos públicos: 
+
 ◦ Construtor(es).
 
 ◦ getters e setters, quando necessários.
