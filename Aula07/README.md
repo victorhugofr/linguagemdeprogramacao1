@@ -1,5 +1,4 @@
-1.
-Implemente em C++ um programa que simule a uma corrida de sapos. Implemente uma classe chamada Sapo contendo  
+1.Implemente em C++ um programa que simule a uma corrida de sapos. Implemente uma classe chamada Sapo contendo  
 Atributos: nome, identificador, distância percorrida, quantidade de pulos dados, quantidade de provas disputadas, vitórias, empates, quantidade total de pulos dados.  
 Atributo estático público: distância total da corrida 
 Métodos públicos: ◦ Construtor(es).
