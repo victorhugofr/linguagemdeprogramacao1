@@ -3,23 +3,6 @@
 #include "procedimentos.hpp"
 #include "pista.hpp"
 using namespace std;
-void removersapocorrida(listsapo *List, listsapo *temp2,int i){
-	int test=0;
-    if(i-1>=0){
-    	while(test!=i-1){
-			List->begin=List->begin->prox; 
-			test++;
-		}
-        listsapo *tmp = new listsapo;
-        tmp->begin = List->begin;
-        tmp->begin->prox=List->begin->prox->prox;
-        delete List->begin->prox;
-        List->begin = tmp->begin;
-        List->begin->prox=tmp->begin->prox;
-        cout << "Removeu!"<<endl;
-        List->begin = temp2->begin;
-    }
-}
 int menu(){
 	int resposta;
 	cout<<"MENU:"<<endl;
@@ -32,36 +15,47 @@ int menu(){
 	cin>>resposta;
 	return resposta;
 }
-void estatisticasapo(Sapo *sapos, int cont){
+void estatisticasapo(listsapo *sapos, int cont){
+	listsapo *tmp=new listsapo;
+	tmp->begin=sapos->begin;
 	for(int i = 0 ;i<cont;i++){
-		cout<<sapos[i]<<endl;
+		cout<<"NOME:"<<tmp->begin->data.getname()<<endl<<"         "<<"QTD PROVAS:"<<tmp->begin->data.getqtdprovas()<<endl<<"         "<<"QTD VITORIAS:"<<tmp->begin->data.getqtdvitorias()<<endl;
+		tmp->begin=tmp->begin->prox;
 	}
+	delete tmp;
 }
-void estatisticapista(Pista *pistas, int cont){
+void estatisticapista(listpista *pistas, int cont){
+	listpista *tmp = new listpista;
+	tmp->begin = pistas->begin;
 	for(int i = 0 ;i<cont;i++){
-		cout<<pistas[i]<<endl;
+		cout<< tmp->begin->data.nome <<"   -   "<< tmp->begin->data.distancia<<endl;
+		tmp->begin=tmp->begin->prox;
 	}
+	delete tmp;
 }
 void corrida(listsapo *sapos, listpista *pista, int cont, int cont2){
 	listsapo *tempsapo=new listsapo;
 	tempsapo->begin=sapos->begin;
-	listpista *temppista=pista;
+	listpista *temppista=new listpista;
+	temppista->begin=pista->begin;
 	cout<<"SELECIONE A PISTA PARA A CORRIDA,  PISTAS DISPONIVEIS"<<endl;
 	int pd = 0;
-	 while(temppista->begin->prox!=NULL){
+	 for(int i=0;i<cont2;i++){
     	 cout<<pd<<" - "<<temppista->begin->data.nome<<" "<<temppista->begin->data.distancia<<endl;
     	 temppista->begin=temppista->begin->prox;
  	}
  	string npista;
+ 	cout<<"DIGITE O NOME DA PISTA DESEJADA"<<endl;
  	cin>>npista;
 	int rpista;
+	cout<<"DIGITE A DISTANCIA DA PISTA DESEJADA"<<endl;
 	cin>>rpista;
 	cout<<"SEJAM BEM VINDOS A CORRIDA "<<endl;
 	cout<<"LISTA DE SAPOS PARA A CORRIDA:"<<endl;
-	while(tempsapo->begin->prox!=NULL){
+	do{
     	 cout<<tempsapo->begin->data.getname()<<endl;
     	 tempsapo->begin=tempsapo->begin->prox;
- 	}
+ 	}while(tempsapo->begin->prox!=NULL);
  	tempsapo->begin=sapos->begin;
 	cout<<"*******PREPARAR******"<<endl;
 	cout<<"******APONTAR*******"<<endl;
@@ -70,10 +64,9 @@ void corrida(listsapo *sapos, listpista *pista, int cont, int cont2){
 	int d[cont]={};
 	int pulo[cont]={};
 	int vezes[cont]={};// auxiliar quem ja acabou a corrida
-	int aux=0,rodada=1;
+	int aux=0,rodada=1,pulinho;
 	int ganhador[cont];
 	ganhador[cont-1]=356;
-	int pulinho;
 	listsapo *temp2 = new listsapo;
 	temp2->begin=sapos->begin;
 	while(ganhador[cont-1] == 356){
@@ -86,8 +79,9 @@ void corrida(listsapo *sapos, listpista *pista, int cont, int cont2){
 			if(d[i]>=rpista && vezes[i]==0){
 				ganhador[aux]=i;
 				vezes[i]=1;
+				tempsapo->begin=tempsapo->begin->prox;
 				//temp2->begin=tempsapo->begin->prox;
-				removersapocorrida(tempsapo,temp2,i);
+				//removersapocorrida(tempsapo,temp2,i);
 				aux++;
 			}else if(vezes[i]==0 && d[i]<rpista){
 				pulinho=rand()%3+1;
@@ -97,12 +91,11 @@ void corrida(listsapo *sapos, listpista *pista, int cont, int cont2){
 				tempsapo->begin->data.setpulos(pulo[i]); 
 				cout<<"O SAPO "<<tempsapo->begin->data.getname()<<" PULOU! NUMA DISTANCIA DE "<<pulinho<< "   DISTANCIA PERCORRIDA ATE O MOMENTO: "<<d[i]<<endl;
 				tempsapo->begin=tempsapo->begin->prox;
-				if(i==cont-1){
-					cout<<"*******************************************"<<endl;
-				}
+			}else if(vezes[i]==1 && d[i]>=rpista){
+				tempsapo->begin=tempsapo->begin->prox;
 			}
-
 		}
+		cout<<"*******************************************"<<endl;
 		tempsapo->begin=temp2->begin;
 		rodada++;
 	}
@@ -121,9 +114,11 @@ void corrida(listsapo *sapos, listpista *pista, int cont, int cont2){
 			tempsapo->begin->data.setqtdvitorias(1);
 		}
 		cout<<z+1<<" - "<<tempsapo->begin->data.getname()<<endl;
+		test=0;
 		z++;
 		tempsapo->begin=sapos->begin;
 	}
 	delete temp2;
 	delete tempsapo;
+	delete temppista;
 }

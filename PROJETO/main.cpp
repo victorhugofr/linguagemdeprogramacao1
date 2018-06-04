@@ -125,17 +125,26 @@ int main(){
 		if(z==0){
 			break;
 		}else if(z==1){
-//			estatisticasapo(sapo,cont);
+            estatisticasapo(sapos,cont);
 		}else if(z==2){
-			//if(auxnew==0){
-			//	estatisticapista(pistas,cont2);
-			//}else{
-			//	estatisticapista(pistas,cont3);
-			//}
+			estatisticapista(pista,cont2);
 		}else if(z==3){
 			corrida(sapos,pista,cont,cont2);
 		}else if(z==4){
-
+            cout<<"Digite o nome do sapo que deseja adicionar"<<endl;
+            string novosapo;
+            cin>>novosapo;
+            Sapo novosapo1;
+            novosapo1.setname(novosapo);
+            inserirsapo(sapos,novosapo1);
+            ofstream arquivosapo2("sapos.txt",ios::ate | ios::app);
+            if(arquivosapo2.is_open()){
+                arquivosapo2 <<"\n"<<novosapo; 
+                arquivosapo2.close();
+            }else{
+                cout<<"Nao foi possivel abrir o arquivo"<<endl;
+            }
+            cont++;
 		}else if(z==5){
 		//	auxnew++;
 		//	delete pistas;
@@ -145,6 +154,10 @@ int main(){
 			cout<<"Digite a distancia da corrida que queira adicionar"<<endl;
 			string novadistancia;
 			cin>>novadistancia;
+            int novadistancia1=stoi(novadistancia);
+            Pista novapista;
+            novapista.distancia=novadistancia1;
+            novapista.nome=novonome;
 			ofstream arquivocorrida2("corrida.txt",ios::ate | ios::app);
 			if(arquivocorrida2.is_open()){
 				arquivocorrida2 <<"\n"<<novadistancia<<" "<<novonome; 
@@ -152,6 +165,8 @@ int main(){
 			}else{
 				cout<<"Nao foi possivel abrir o arquivo"<<endl;
 			}
+            inserirpista(pista,novapista);
+            cont2++;
 		}
 	}
 	return 0;
