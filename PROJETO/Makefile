@@ -19,4 +19,4 @@ pista.o:
 procedimentos.o:
 	$(CC) $(CPPFLAGS) -c $(SRC)procedimentos.cpp
 clean: 
-	del /f *.o exec
+	rm -f *.o exec
