@@ -25,8 +25,11 @@ A execução do programa, no diretório raiz, execute o comando:
 Caso tenha interesse em mudar os sapos ou pistas iniciais deve seguir as seguintes configurações:
 
 ######Para os sapos:
+
 nomedesejado
+
 ######Para as pistas:
+
 distanciadapista nomedapista
 
 Programa desenvolvido por _Victor Hugo_ (*vale1c@ufrn.edu.br*), 2018.1
