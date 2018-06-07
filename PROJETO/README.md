@@ -1,4 +1,4 @@
-# CORRIDA DE SAPOS
+ # CORRIDA DE SAPOS
 
 
 ## Sobre o projeto:
@@ -24,11 +24,11 @@ A execução do programa, no diretório raiz, execute o comando:
 
 Caso tenha interesse em mudar os sapos ou pistas iniciais deve seguir as seguintes configurações:
 
-######Para os sapos:
+###### Para os sapos:
 
 nomedesejado
 
-######Para as pistas:
+###### Para as pistas:
 
 distanciadapista nomedapista
 
